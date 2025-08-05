@@ -1,0 +1,135 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text for better contrast */
+}
+
+.game-container {
+    text-align: center;
+    background-color: #222222; /* Dark gray container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Light shadow for contrast */
+}
+
+h1 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.status {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #dddddd;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(7, 60px);
+    grid-template-rows: repeat(6, 60px);
+    gap: 5px;
+    background-color: #1a73e8;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    background-color: #333333; /* Darker cell background */
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+.cell:hover {
+    background-color: #444444; /* Slightly lighter on hover */
+}
+
+.cell::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #1a73e8;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.cell.red {
+    background-color: #e74c3c;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.cell.yellow {
+    background-color: #f1c40f;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0d5bba;
+}
+
+.score {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-weight: bold;
+}
+
+.score span {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333333; /* Dark background for scores */
+}
+
+#score1 {
+    color: #e74c3c;
+}
+
+#score2 {
+    color: #f1c40f;
+}
+
+.winner-animation {
+    animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { 
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    }
+    to { 
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+}
